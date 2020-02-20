@@ -11,3 +11,6 @@ for snap_service in $snap_services; do
   echo $cmd
   $cmd
 done
+
+#switch to runlevel 3
+systemctl set-default multi-user.target
