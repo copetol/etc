@@ -18,5 +18,8 @@ sudo systemctl disable apt-daily.timer
 sudo systemctl disable apt-daily-upgrade.timer
 sudo systemctl disable apt-daily-upgrade.service
 
+echo "systemctl disable motd-news"
+sudo systemctl disable motd-news.service
+
 #switch to runlevel 3
 systemctl set-default multi-user.target
