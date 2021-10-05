@@ -2,3 +2,5 @@
 
 <b>rlog-test.c</b> &mdash; Program infinitly writes messages to syslog.<br>
 <b>rlog-reconfig_and_start.sh</b> <i>&lt;id&gt;</i> &mdash; Creates rsyslogd config file for <i>id</i>, reloads rsyslogd, starts application have builded from rlog-test.c with <i>id</i> as argument.
+
+<b>deploy-from-share.yml</b> &mdash; ansible playbook than take archive with application from remote share and deploys it to testing servers. Run: ansible-playbook deploy-from-share.yml -i /path/to/ansible/hosts
