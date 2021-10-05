@@ -1,0 +1,27 @@
+- hosts: share
+  tasks:
+  - name: Get files in a folder
+    find:
+      paths: "/home/share/artefacts"
+      patterns: "mega-app_*.tgz"
+    register: found_files
+
+  - name: Get latest file
+    set_fact:
+      latest_file: "{{ (found_files.files|sort(attribute='mtime')|last).path }}"
+
+  - name: Debug
+    debug: msg="latest file {{ latest_file | basename }}"
+
+  - name: Copy to local
+    ansible.builtin.fetch:
+      flat: true
+      src: "{{ latest_file }}"
+      dest: ./fetched/last.tgz
+
+- hosts: tests
+  tasks:
+  - name: Extract
+    ansible.builtin.unarchive:
+      src: "./fetched/last.tgz"
+      dest: "/opt/mega-app/"
