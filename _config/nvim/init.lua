@@ -1,55 +1,77 @@
-local set = vim.opt
+vim.opt.background = "dark"
+vim.opt.clipboard = "unnamedplus"
+vim.opt.completeopt = "noinsert,menuone,noselect"
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
+vim.opt.expandtab = true
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldmethod = "manual"
+vim.opt.hidden = true
+vim.opt.inccommand = "split"
+vim.opt.mouse = "a"
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.shiftwidth = 2
+vim.opt.smarttab = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.swapfile = false
+vim.opt.tabstop = 2
+vim.opt.termguicolors = true
+vim.opt.title = true
+vim.opt.ttimeoutlen = 0
+vim.opt.wildmenu = true
+vim.opt.wrap = true
 
-set.background = "dark"
-set.clipboard = "unnamedplus"
-set.completeopt = "noinsert,menuone,noselect"
-set.cursorline = true
-set.expandtab = true
-set.foldexpr = "nvim_treesitter#foldexpr()"
-set.foldmethod = "manual"
-set.hidden = true
-set.inccommand = "split"
-set.mouse = "a"
-set.number = true
-set.relativenumber = true
-set.shiftwidth = 2
-set.smarttab = true
-set.splitbelow = true
-set.splitright = true
-set.swapfile = false
-set.tabstop = 2
-set.termguicolors = true
-set.title = true
-set.ttimeoutlen = 0
-set.updatetime = 250
-set.wildmenu = true
-set.wrap = true
+vim.cmd [[set noshowmode]] 
+vim.cmd [[set ignorecase]]
+vim.cmd [[set formatoptions-=cro]]
 
 vim.cmd [[imap <F2> <esc>:w<CR>i<right>]]
 vim.cmd [[nmap <F2> :w<CR>]]
---vim.cmd [[au InsertEnter * hi StatusLine guifg=#303030 guibg=#c0c0c0]]
---vim.cmd [[au InsertLeave * hi StatusLine guifg=#000000 guibg=#cccc00]]
---vim.cmd [[hi StatusLine guibg=#000000 guifg=#cccc00]]
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
-
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+vim.cmd [[imap <M-.> <esc>gt]]
+vim.cmd [[imap <M-,> <esc>gT]]
+vim.cmd [[nmap <M-.> gt]]
+vim.cmd [[nmap <M-,> gT]]
+vim.cmd [[imap <F8> <C-O>dd]]
 vim.cmd [[colorscheme my]]
+vim.cmd [[packadd packer.nvim]]
+vim.cmd [[let g:neo_tree_remove_legacy_commands = 1]]
 
+--local function GitStatusLine()
+--  local res = GitGutterGetHunkSummary()
+--  return string.format('+%d ~%d -%d', res[0], res[1], res[2])
+--end
+--vim.opt.statusline=vim.opt.statusline+GitStatusLine()
 return require('packer').startup(function(use)
--- Unless you are still migrating, remove the deprecated commands from v1.x
-vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
-  -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-use 'feline-nvim/feline.nvim'
-require('feline').setup()
-use 'alaviss/nim.nvim' 
---use {
---  "norcalli/nvim-colorizer.lua",
---  cmd = "ColorizerToggle",
---  config = function()
---    require("colorizer").setup()
---  end,
---}
-end)
+  use 'famiu/feline.nvim'
+  require('feline').setup()
+  --require('feline').winbar.setup()
+  --use 'tpope/vim-fugitive'
+  use 'airblade/vim-gitgutter'
+  vim.cmd [[autocmd VimEnter * GitGutterLineNrHighlightsEnable]]
+  vim.cmd [[highlight IndentBlanklineChar guifg=#000000 gui=nocombine]]
+  use "lukas-reineke/indent-blankline.nvim"
+  require("indent_blankline").setup{
+    char = '▎' --'▏' -- ''▎' -- '▏' --'⎸' -- '⸾' --
+  }
+  use 'neovim/nvim-lspconfig'
+  use 'dart-lang/dart-vim-plugin'
+  --use 'thosakwe/vim-flutter'
+  use 'natebosch/vim-lsc'
+  use 'natebosch/vim-lsc-dart'
+  use {
+    'akinsho/flutter-tools.nvim',
+    --opt = true,
+    --module = 'flutter-tools',
+    requires = {'nvim-lua/plenary.nvim'}
+  }
+  require("flutter-tools").setup {} -- use default
+
+ local signs = { Error = "✖", Warn = "❗", Hint = "▶", Info = "i" }
+ for type, icon in pairs(signs) do
+   local hl = "DiagnosticSign" .. type
+   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+ end
+end);

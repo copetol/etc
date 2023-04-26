@@ -7,22 +7,22 @@ if exists('syntax_on')
 endif
 let g:colors_name='nvb-gruvbox'
 
-hi Normal guifg=#eeeedd ctermfg=223 guibg=#181818 ctermbg=235 gui=NONE cterm=NONE
+hi Normal guifg=#eeeeee ctermfg=223 guibg=#181818 ctermbg=235 gui=NONE cterm=NONE
 hi Comment guifg=#666666 ctermfg=59 guibg=NONE ctermbg=NONE gui=italic cterm=italic
 hi Constant guifg=#99ff99 ctermfg=172 guibg=NONE ctermbg=NONE gui=bold cterm=bold
 hi String guifg=#00cc33 ctermfg=100 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Character guifg=#66ff66 ctermfg=172 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Number guifg=#99ffff ctermfg=214 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi Number guifg=#00ccff ctermfg=214 guibg=NONE ctermbg=NONE gui=bold cterm=bold
 hi Boolean guifg=#99ff99 ctermfg=166 guibg=NONE ctermbg=NONE gui=bold cterm=bold
-hi Float guifg=#99ccff ctermfg=214 guibg=NONE ctermbg=NONE gui=bold cterm=bold
-hi Identifier guifg=#ffffee ctermfg=172 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Function guifg=#66ffff ctermfg=172 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi Float guifg=#0099ff ctermfg=214 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi Identifier guifg=#00ffff ctermfg=172 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi Function guifg=#00ffff ctermfg=172 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Statement guifg=#ff99ff ctermfg=132 guibg=NONE ctermbg=NONE gui=bold cterm=bold
-hi Conditional guifg=#ffff99 ctermfg=223 guibg=NONE ctermbg=NONE gui=bold cterm=bold
-hi Repeat guifg=#ffff99 ctermfg=132 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi Conditional guifg=#ffff00 ctermfg=223 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi Repeat guifg=#ffff00 ctermfg=132 guibg=NONE ctermbg=NONE gui=bold cterm=bold
 hi Label guifg=#83a598 ctermfg=108 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Operator guifg=#66ffff ctermfg=223 guibg=NONE ctermbg=NONE gui=bold cterm=bold
-hi Keyword guifg=#009900 ctermfg=203 guibg=blue ctermbg=NONE gui=NONE cterm=NONE
+hi Operator guifg=#ffffff ctermfg=223 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi Keyword guifg=#ffff00 ctermfg=203 guibg=NONE ctermbg=NONE gui=bold cterm=bold
 hi Exception guifg=#ffff99 ctermfg=132 guibg=NONE ctermbg=NONE gui=bold cterm=bold
 hi PreProc guifg=#d79921 ctermfg=172 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Include guifg=#ffffff ctermfg=203 guibg=NONE ctermbg=NONE gui=bold cterm=bold
@@ -30,13 +30,13 @@ hi Define guifg=#b16286 ctermfg=132 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Title guifg=#ebdbb2 ctermfg=223 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Macro guifg=#b16286 ctermfg=132 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi PreCondit guifg=#b16286 ctermfg=132 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Type guifg=#eebb00 ctermfg=172 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi StorageClass guifg=#458588 ctermfg=66 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi Type guifg=#ffcc66 ctermfg=172 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi StorageClass guifg=#ff99ff ctermfg=66 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Structure guifg=#d79921 ctermfg=172 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Typedef guifg=#d79921 ctermfg=172 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi Typedef guifg=#ff9900 ctermfg=172 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Special guifg=#00ff00 ctermfg=108 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi SpecialComment guifg=#665c54 ctermfg=59 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi MoreMsg guifg=#ebdbb2 ctermfg=223 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi MoreMsg guifg=#ebdbb2 ctermfg=223 guibg=NONE ctermbg=NONE gui=underline cterm=underline
 hi Error guifg=#fb4934 ctermfg=203 guibg=NONE ctermbg=NONE gui=bold,reverse cterm=bold,reverse
 hi Todo guifg=#b16286 ctermfg=132 guibg=NONE ctermbg=NONE gui=bold,italic cterm=bold,italic
 hi Underlined guifg=#cc241d ctermfg=160 gui=underline cterm=underline
@@ -45,8 +45,8 @@ hi ColorColumn guifg=NONE ctermfg=NONE guibg=#504945 ctermbg=239 gui=NONE cterm=
 hi CursorLineNr guifg=#7c6f64 ctermfg=242 guibg=NONE ctermbg=NONE gui=bold cterm=bold
 hi SignColumn guifg=NONE ctermfg=NONE guibg=#282828 ctermbg=235 gui=NONE cterm=NONE
 hi Conceal guifg=#665c54 ctermfg=59 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi CursorColumn guifg=NONE ctermfg=NONE guibg=#282828 ctermbg=235 gui=NONE cterm=NONE
-hi CursorLine guifg=NONE ctermfg=NONE guibg=#222222 ctermbg=236 gui=NONE cterm=NONE
+hi CursorColumn guifg=NONE ctermfg=NONE guibg=#000000 ctermbg=235 gui=NONE cterm=NONE
+hi CursorLine guifg=NONE ctermfg=NONE guibg=#080808 ctermbg=236 gui=NONE cterm=NONE
 hi Directory guifg=#83a598 ctermfg=108 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi DiffAdd guifg=#282828 ctermfg=235 guibg=#d79921 ctermbg=172 gui=NONE cterm=NONE
 hi DiffChange guifg=#d79921 ctermfg=172 guibg=NONE ctermbg=NONE gui=underline cterm=underline
